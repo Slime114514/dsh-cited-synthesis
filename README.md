@@ -14,7 +14,7 @@
 
 | 注册项 | 作用 | 什么时候生效 |
 |---|---|---|
-| system prompt 段落 `cited-synthesis-rules` | 七条硬约束，每次都出现 | 每一轮 |
+| system prompt 段落 `cited-synthesis-rules` | 九条硬约束，每次都出现 | 每一轮 |
 | skill `cited-synthesis-delivery` | 完整流程：证据台账、条件维度、分歧三步判定、交付模板、交付前自检、反模式 | 模型按需加载 |
 
 段落只占约 200 token，长文本全部放在 skill 里，避免每轮付费。
@@ -39,7 +39,13 @@
 npx @deepseek-ai/dsh web
 ```
 
-在插件管理器里安装本包（本地目录或 npm 包名均可）。也可以用 `plugin_manager` 的 `install_bundle`，`target` 传本目录的绝对路径。
+在插件管理器里安装 `dsh-cited-synthesis`。也可以直接用 `plugin_manager` 的 `install_bundle`：
+
+```
+target: dsh-cited-synthesis@0.2.1
+```
+
+开发时 `target` 也可以传本地目录的绝对路径。
 
 本包是 Host-only bundle，无运行时依赖，不需要构建步骤，没有安装脚本。
 
