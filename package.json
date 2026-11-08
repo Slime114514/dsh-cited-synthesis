@@ -1,0 +1,44 @@
+﻿{
+  "name": "dsh-cited-synthesis",
+  "version": "0.2.0",
+  "type": "module",
+  "license": "MIT",
+  "author": "Slime114514",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Slime114514/dsh-cited-synthesis.git"
+  },
+  "homepage": "https://github.com/Slime114514/dsh-cited-synthesis#readme",
+  "bugs": {
+    "url": "https://github.com/Slime114514/dsh-cited-synthesis/issues"
+  },
+  "description": "Applies citation, condition and disagreement rules to every web-search answer, and registers an on-demand skill with the full procedure.",
+  "keywords": [
+    "dsh-plugin",
+    "deepseek-harness",
+    "citation",
+    "research"
+  ],
+  "exports": {
+    ".": "./index.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}
