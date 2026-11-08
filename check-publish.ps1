@@ -10,6 +10,10 @@ Write-Host "`n== package.json ==" -ForegroundColor Cyan
 $raw = Get-Content .\package.json -Raw
 $pkg = $raw | ConvertFrom-Json
 
+$b = [System.IO.File]::ReadAllBytes((Resolve-Path .\package.json).Path)
+if ($b.Length -ge 3 -and $b[0] -eq 0xEF -and $b[1] -eq 0xBB -and $b[2] -eq 0xBF) { Bad "package.json 带 UTF-8 BOM，严格 JSON 解析会失败" }
+else { Ok "package.json 无 BOM" }
+
 if ($raw -match 'REPLACE-ME') { Bad "还有 REPLACE-ME 占位符（author / repository / homepage / bugs）" }
 else { Ok "占位符已替换" }
 
